@@ -25,3 +25,14 @@ jobs:
 
       - name: Install JavaScript dependencies
         run: npm ci
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Restore .NET dependencies
+        run: dotnet restore api/api-dotnet.csproj
+
+      - name: Build .NET API
+        run: dotnet build api/api-dotnet.csproj --no-restore

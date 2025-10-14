@@ -1,27 +1,36 @@
 ---
 mode: 'agent'
-description: 'Demo: Improve API Test Coverage - Add Unit Tests for Missing Routes.'
+description: 'Demo: Improve .NET API Test Coverage - Add Unit Tests for Product and Supplier Controllers.'
 tools: ['changes', 'codebase', 'editFiles', 'fetch', 'findTestFiles', 'githubRepo', 'problems', 'runCommands', 'runTasks', 'search', 'terminalLastCommand', 'testFailure', 'usages', 'playwright', 'github', 'Azure MCP Server']
 ---
-# 🧪 Demo: Add Unit Tests for Product and Supplier Routes
+# 🧪 Demo: Add .NET Unit Tests for Product and Supplier Controllers
 
 ## 📊 Current State
-- Only **1 test file exists**: `branch.test.ts`
+- **Current test coverage**: Limited to `BranchApiTests.cs` and `BranchRepositoryTests.cs`
+- **Controllers coverage**: Only Branch controller tested
+- **Models coverage**: Only Branch model repository tested
+- Only **2 test files exist** in the `api-tests` project
 
 ## 🎯 Objective
-Increase API test coverage by implementing comprehensive unit tests for Product and Supplier routes.
+Increase .NET API test coverage by implementing comprehensive unit tests for Product and Supplier controllers and repositories.
 
 ## 📋 Missing Test Files
 
-### 🔗 Route Tests (High Priority)
-The following route files need complete test coverage:
+### 🔗 Controller Tests (High Priority)
+The following controller files need complete test coverage:
 
-- [ ] `src/routes/product.test.ts`
-- [ ] `src/routes/supplier.test.ts`
+- [ ] `ProductApiTests.cs`
+- [ ] `SupplierApiTests.cs`
+
+### 🏗️ Repository Tests (Medium Priority)
+The following repository files need validation tests:
+
+- [ ] `ProductRepositoryTests.cs`
+- [ ] `SupplierRepositoryTests.cs`
 
 ## ✅ Test Coverage Requirements
 
-### For Each Route Test File:
+### For Each Controller Test File:
 - **CRUD Operations:**
   - ✅ GET all entities
   - ✅ GET single entity by ID
@@ -32,54 +41,120 @@ The following route files need complete test coverage:
 - **Error Scenarios:**
   - ❌ 404 for non-existent entities
   - ❌ 400 for invalid request payloads
-  - ❌ 422 for validation errors
+  - ❌ Bad Request for ID mismatches
   - ❌ Edge cases (malformed IDs, empty requests)
+
+### For Each Repository Test File:
+- CRUD operations on the generic repository
+- Data validation and constraints
+- Collection manipulation
+- GetById, Add, Update, Delete operations
+- Edge cases and null handling
 
 ## 🛠️ Implementation Guidelines
 
 ### Use Existing Pattern
-Follow the pattern established in `src/routes/branch.test.ts`:
-```typescript
-import { describe, it, expect, beforeEach } from 'vitest';
-import request from 'supertest';
-import express from 'express';
+Follow the pattern established in `BranchApiTests.cs`:
+```csharp
+using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net.Http.Json;
+using Xunit;
+using OctoCat.Api.Models;
+using OctoCat.Api.Data;
 ```
 
-### Test Structure Template
-```typescript
-describe('[Entity] API', () => {
-    beforeEach(() => {
-        // Setup app and reset data
-    });
+### Controller Test Structure Template
+```csharp
+public class [Entity]ApiTests : IClassFixture<WebApplicationFactory<Program>>
+{
+    private readonly WebApplicationFactory<Program> _factory;
+    private readonly HttpClient _client;
+    private readonly string _apiPath = "/api/[entities]";
 
-    it('should create a new [entity]', async () => { /* POST test */ });
-    it('should get all [entities]', async () => { /* GET all test */ });
-    it('should get a [entity] by ID', async () => { /* GET by ID test */ });
-    it('should update a [entity] by ID', async () => { /* PUT test */ });
-    it('should delete a [entity] by ID', async () => { /* DELETE test */ });
-    it('should return 404 for non-existing [entity]', async () => { /* Error test */ });
-});
+    public [Entity]ApiTests(WebApplicationFactory<Program> factory)
+    {
+        _factory = factory.WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureServices(services =>
+            {
+                // Configure test data repository
+            });
+        });
+        _client = _factory.CreateClient();
+    }
+
+    [Fact]
+    public async Task GetAll_ReturnsSuccessAnd[Entities]() { /* GET all test */ }
+    
+    [Fact]
+    public async Task GetById_NonExistingId_ReturnsNotFound() { /* 404 test */ }
+    
+    [Fact]
+    public async Task Post_Valid[Entity]_ReturnsCreatedAnd[Entity]() { /* POST test */ }
+    
+    [Fact]
+    public async Task Put_IdMismatch_ReturnsBadRequest() { /* PUT error test */ }
+    
+    [Fact]
+    public async Task Delete_Existing[Entity]_ReturnsNoContent() { /* DELETE test */ }
+}
+```
+
+### Repository Test Structure Template
+```csharp
+public class [Entity]RepositoryTests
+{
+    private readonly List<[Entity]> _[entities];
+    private readonly GenericRepository<[Entity], int> _repository;
+
+    public [Entity]RepositoryTests()
+    {
+        // Setup test data and repository
+    }
+
+    [Fact]
+    public void GetAll_ReturnsAll[Entities]() { /* GetAll test */ }
+    
+    [Fact]
+    public void GetById_ExistingId_Returns[Entity]() { /* GetById success test */ }
+    
+    [Fact]
+    public void GetById_NonExistingId_ReturnsNull() { /* GetById null test */ }
+    
+    [Fact]
+    public void Add_New[Entity]_AddsToCollection() { /* Add test */ }
+    
+    [Fact]
+    public void Update_Existing[Entity]_UpdatesInCollection() { /* Update test */ }
+    
+    [Fact]
+    public void Delete_Existing[Entity]_RemovesFromCollection() { /* Delete test */ }
+}
 ```
 
 ## 🔧 Running Tests
 
 ```bash
-# Run all tests
+# Run all tests with coverage
 npm run test:api
 
-# Run tests with coverage
-npm run test:api -- -- --coverage
+# Generate coverage report  
+npm run test:api:report
 
-# Run specific test file
-npm run test:api -- src/routes/product.test.ts
+# Run tests with coverage and generate report
+npm run test:api:cover
+
+# Run specific test class
+dotnet test api-tests/api-tests.csproj --filter "FullyQualifiedName~ProductApiTests"
 ```
 
 ## 📈 Success Criteria
-- [ ] Add route test files for Product and Supplier
+- [ ] Add controller test files for Product and Supplier
+- [ ] Add repository test files for Product and Supplier
 - [ ] All tests passing in CI/CD
 
 ## 🚀 Getting Started
-1. Start with `product.test.ts` - copy `branch.test.ts` pattern
+1. Start with `ProductApiTests.cs` - copy `BranchApiTests.cs` pattern
 2. Implement basic CRUD tests first
 3. Add error scenarios incrementally
 4. Run coverage after each file to track progress
@@ -87,6 +162,7 @@ npm run test:api -- src/routes/product.test.ts
 
 ## 📚 Related Files
 - ERD Diagram: `api/ERD.png`
-- Existing test: `api/src/routes/branch.test.ts`
-- Test config: `api/vitest.config.ts`
-- Coverage report: `api/coverage/index.html`
+- Existing controller test: `api-tests/BranchApiTests.cs`
+- Existing repository test: `api-tests/BranchRepositoryTests.cs`
+- Test project: `api-tests/api-tests.csproj`
+- Coverage report: `api-tests/TestResults/CoverageReport/index.html`
