@@ -6,9 +6,22 @@
 2. "How can I start this project?"
 
 ## Demo 1:
+
+### Generic
 Demonstrate Instructions, commit messages, and customer patterns, Coding Agent at the IDE, Automodel, MCP Tools
 and of course everything in the IDE :)
-(start without instructions and commit messages : TODO need to check how to do that)
+
+### MCP Server and tools - Show Limits
+- explain what MCP server is/ that is different than tools. One MCP server may have many tools
+- Show exclamation in tools when limit is reached
+- run (AGENT 4.1) _"Are there any Issues open in this repo ?"_ - show it fails due to limit
+- Open settings - > search for "github.copilot.chat.virtualTools.threshold" - explain this is the threshold for using tools, change 0 to 128, try again
+ 
+### Custom Prompt Files
+Reusing custom prompts to streamline AI-native workflow and demonstrate prompt engineering best practices
+- _Model Comparison Prompt_: Show the model-compare.prompt.md file in the prompts directory. Explain the YAML frontmatter (mode: 'agent', description, tools). Click the Run button in the top (or use Command Palette → "Chat: Run Prompt" - start from ASK, erase docs/model-comparison.md) and show how it automatically selects Agent mode, fetches live documentation, and updates the comparison markdown file.
+
+
 
 
 
@@ -17,11 +30,7 @@ Show the differences of giving well defined prompts vs vague prompts
 Spec-driven workflows with Spec Kit, prompting best practices, and AI agents executing specs. 
 Demo: Spec-to-code flow using Copilot + Spec Kit.
 
-### MCP Server and tools - Show Limits
-- explain what MCP server is/ that is different than tools. One MCP server may have many tools
-- Show exclamation in tools when limit is reached
-- run (AGENT 4.1) _"Are there any Issues open in this repo ?"_ - show it fails due to limit
-- Open settings - > search for "github.copilot.chat.virtualTools.threshold" - explain this is the threshold for using tools, change 0 to 128, try again
+
 
 
 ### Show how to document an API
