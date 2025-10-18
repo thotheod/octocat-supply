@@ -3,5 +3,11 @@
         {
             "file": ".github/commit-message-instructions.md"
         }
+    ],
+    "github.copilot.chat.reviewSelection.instructions": [
+        {
+            "file": ".github/instructions/gilfoyle-code-review.instructions.md"
+        }
     ]
+
 }

@@ -7,9 +7,10 @@
 
 ## Demo 1:
 
-### 1.1 eneric
+### 1.1 Generic
 Demonstrate Instructions, commit messages, and customer patterns, Coding Agent at the IDE, Automodel, MCP Tools
 and of course everything in the IDE :)
+- Demonstrate "Next Edit feature" in product.json file. Add _"sku": "IW-001"_ to the first product.
 
 ### 1.2 MCP Server and tools - Show Limits
 - explain what MCP server is/ that is different than tools. One MCP server may have many tools
@@ -21,10 +22,13 @@ and of course everything in the IDE :)
 Reusing custom prompts to streamline AI-native workflow and demonstrate prompt engineering best practices
 - _Model Comparison Prompt_: Show the model-compare.prompt.md file in the prompts directory. Explain the YAML frontmatter (mode: 'agent', description, tools). Click the Run button in the top (or use Command Palette → "Chat: Run Prompt" - start from ASK, erase docs/model-comparison.md) and show how it automatically selects Agent mode, fetches live documentation, and updates the comparison markdown file.
 - HINT: you can disable the Builtin > Eit files tool to show that it cannot create a file. then in Agent Mode use GPT 5.0 mini and prompt "create a CONTRIBUTING.md file based on best practices" - it will fail as it cannot create files without the tool enabled. But after you enable it it will be able to create the file.
-
 - Another demo would be to use the / command on the chat and call the prompt file to generate README.md from readme-blueprint-generator.prompt.md. 
 
+### 1.4 Custom modes
+- Demonstrate the use of custom modes in the chat. Select BDD mode from the mode picker. Show how the prompt is pre-filled with BDD instructions. Ask_ "add a feature to test the cart icon and page"_ - show how it creates a proper Gherkin feature file.
 
+### 1.5 Custom instructions :) :)
+- use ask GPT 4.1 and ask "review my code base". Possibly some good results. Then show https://github.com/github/awesome-copilot and copy from /.misc-resources the file "gilfoyle-code-review.instructions.md" to the .github/instructions and ask again "review my code base" - LOL (if it does not work try _"review my codebase using #file:gilfoyle-code-review.instructions.md"_
 
 
 ## Demo 2
