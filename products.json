@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Industrial Widget",
+      "category": "Components",
+      "price": 29.99,
+      "description": "High-quality industrial widget",
+      "supplier": "TechSupply Inc"
+    },
+    {
+      "id": 2,
+      "name": "Precision Bearing",
+      "category": "Bearings",
+      "price": 15.50,
+      "description": "Precision ball bearing for machinery",
+      "supplier": "BearingWorks"
+    },
+    {
+      "id": 3,
+      "name": "Hex Bolt M8",
+      "category": "Fasteners",
+      "price": 0.45,
+      "description": "M8 hex bolt, stainless steel",
+      "supplier": "FastenPro"
+    },
+    {
+      "id": 4,
+      "name": "Aluminum Sheet",
+      "category": "Raw Materials",
+      "price": 49.99,
+      "description": "Aluminum sheet 2mm thickness",
+      "supplier": "MetalSource"
+    },
+    {
+      "id": 5,
+      "name": "Hydraulic Pump",
+      "category": "Machinery",
+      "price": 199.99,
+      "description": "Hydraulic pump for industrial use",
+      "supplier": "PumpMasters"
+    },
+    {
+      "id": 6,
+      "name": "Copper Wire 10m",
+      "category": "Electrical",
+      "price": 12.99,
+      "description": "10 meter copper wire spool",
+      "supplier": "WireWorld"
+    },
+    {
+      "id": 7,
+      "name": "Safety Gloves",
+      "category": "Safety",
+      "price": 3.99,
+      "description": "Industrial safety gloves, size L",
+      "supplier": "SafeHands"
+    },
+    {
+      "id": 8,
+      "name": "Gearbox Assembly",
+      "category": "Machinery",
+      "price": 299.99,
+      "description": "Complete gearbox assembly",
+      "supplier": "GearTech"
+    },
+    {
+      "id": 9,
+      "name": "Rubber Gasket",
+      "category": "Components",
+      "price": 1.25,
+      "description": "Rubber gasket for sealing",
+      "supplier": "SealPro"
+    },
+    {
+      "id": 10,
+      "name": "LED Floodlight",
+      "category": "Electrical",
+      "price": 24.99,
+      "description": "Outdoor LED floodlight, 50W",
+      "supplier": "BrightLite"
+    },
+    {
+      "id": 11,
+      "name": "Steel Pipe 1m",
+      "category": "Raw Materials",
+      "price": 9.99,
+      "description": "1 meter steel pipe, 2 inch diameter",
+      "supplier": "PipeWorks"
+    },
+    {
+      "id": 12,
+      "name": "Control Panel",
+      "category": "Machinery",
+      "price": 499.99,
+      "description": "Industrial control panel",
+      "supplier": "PanelPro"
+    }
+  ]
+}
