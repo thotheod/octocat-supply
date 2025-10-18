@@ -36,6 +36,7 @@ erDiagram
 - **Backend**: Dotnet MVC API (C#)
 - **DevOps**: Docker
 
+
 ## 🎯 Key Demo Scenarios
 
 1. **Vibe Coding**
