@@ -17,6 +17,12 @@ Show the differences of giving well defined prompts vs vague prompts
 Spec-driven workflows with Spec Kit, prompting best practices, and AI agents executing specs. 
 Demo: Spec-to-code flow using Copilot + Spec Kit.
 
+### MCP Server and tools - Show Limits
+- explain what MCP server is/ that is different than tools. One MCP server may have many tools
+- Show exclamation in tools when limit is reached
+- run (AGENT 4.1) _"Are there any Issues open in this repo ?"_ - show it fails due to limit
+- Open settings - > search for "github.copilot.chat.virtualTools.threshold" - explain this is the threshold for using tools, change 0 to 128, try again
+
 
 ### Show how to document an API
 1. Try EDIT MODE and GPT 4.1 > "Create API documentation following best practices"
