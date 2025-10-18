@@ -3,8 +3,8 @@
 ## GitHub Repo Information
 
 This repo is hosted in GitHub:
-- owner: msft-common-demos
-- repo: copilot_agent_mode-reimagined-potato
+- owner: thotheod
+- repo: octocat-supply
 
 ## Architecture
 
