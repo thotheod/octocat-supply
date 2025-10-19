@@ -19,8 +19,18 @@ and of course everything in the IDE :)
     - first with ask mode - explain that only agent can use tools
     - show it fails due to limit
 - Open settings - > search for "github.copilot.chat.virtualTools.threshold" - explain this is the threshold for using tools, change 0 to 128, try again
- 
-### 1.3 Implement tests / or Cart ??
+
+### 1.3 Multimodal + MCP (Implement Cart Create Issue)
+- (Claude Sonnet 4 / Agent) prompt *"create an issue in my GitHub repo to implement the Cart page and Cart icon. I want the ux to follow UI Design  of the attached image"*
+    - show how it asks for permission to create the issue (It requires GitHub MCP Server to  be started_)
+    - Show the details of the issue, search for something like "Detailed Requirements Based On Design"
+
+### 1.4 Implement tests 
+- (Claude Sonnet 4 / Agent): Prompt: _run tests, analyze coverage and add missing Branch tests to include tests for untested scenarios_
+    - Watch that it creates a TODO list first, that updates as it proceeds
+    - watch how it fixes itself when it cannot execute tests, or gets errors
+    - Watch how it calculates test coverage etc.... (it takes around 5 minutes to complete)
+- Ask Copilot to _add tests for the Product route_ to show generation of new tests
 
 ## Demo 2
 Show the differences of giving well defined prompts vs vague prompts

@@ -71,6 +71,20 @@ namespace OctoCat.Api.Tests
         }
 
         [Fact]
+        public async Task GetById_ExistingId_ReturnsSuccessAndBranch()
+        {
+            // Act
+            var response = await _client.GetAsync($"{_apiPath}/1");
+            
+            // Assert
+            response.EnsureSuccessStatusCode();
+            var branch = await response.Content.ReadFromJsonAsync<Branch>();
+            Assert.NotNull(branch);
+            Assert.Equal(1, branch.BranchId);
+            Assert.Equal("Test Branch", branch.Name);
+        }
+
+        [Fact]
         public async Task GetById_NonExistingId_ReturnsNotFound()
         {
             // Act
@@ -110,6 +124,80 @@ namespace OctoCat.Api.Tests
         }
 
         [Fact]
+        public async Task Post_MinimalValidBranch_ReturnsCreatedAndBranch()
+        {
+            // Arrange - Test with minimal required data
+            var newBranch = new Branch
+            {
+                BranchId = 3,
+                HeadquartersId = 2,
+                Name = "Minimal Branch"
+                // Other fields will be empty strings by default
+            };
+            
+            // Act
+            var response = await _client.PostAsJsonAsync(_apiPath, newBranch);
+            
+            // Assert
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+            Assert.Equal($"{_apiPath}/3", response.Headers.Location?.ToString());
+            
+            var returnedBranch = await response.Content.ReadFromJsonAsync<Branch>();
+            Assert.NotNull(returnedBranch);
+            Assert.Equal(3, returnedBranch.BranchId);
+            Assert.Equal("Minimal Branch", returnedBranch.Name);
+            Assert.Equal(string.Empty, returnedBranch.Description);
+            Assert.Equal(string.Empty, returnedBranch.Address);
+        }
+
+        [Fact]
+        public async Task Put_ValidUpdate_ReturnsSuccessAndUpdatedBranch()
+        {
+            // Arrange
+            var updatedBranch = new Branch
+            {
+                BranchId = 1,
+                HeadquartersId = 1,
+                Name = "Updated Test Branch",
+                Description = "Updated test description",
+                Address = "456 Updated St",
+                ContactPerson = "Updated Person",
+                Phone = "555-UPDT",
+                Email = "updated@octocat.com"
+            };
+            
+            // Act
+            var response = await _client.PutAsJsonAsync($"{_apiPath}/1", updatedBranch);
+            
+            // Assert
+            response.EnsureSuccessStatusCode();
+            var returnedBranch = await response.Content.ReadFromJsonAsync<Branch>();
+            Assert.NotNull(returnedBranch);
+            Assert.Equal(1, returnedBranch.BranchId);
+            Assert.Equal("Updated Test Branch", returnedBranch.Name);
+            Assert.Equal("Updated test description", returnedBranch.Description);
+        }
+
+        [Fact]
+        public async Task Put_NonExistingBranch_ReturnsNotFound()
+        {
+            // Arrange
+            var nonExistingBranch = new Branch
+            {
+                BranchId = 999,
+                HeadquartersId = 1,
+                Name = "Non-existing Branch",
+                Description = "This branch does not exist"
+            };
+            
+            // Act
+            var response = await _client.PutAsJsonAsync($"{_apiPath}/999", nonExistingBranch);
+            
+            // Assert
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+
+        [Fact]
         public async Task Put_IdMismatch_ReturnsBadRequest()
         {
             // Arrange
@@ -138,6 +226,16 @@ namespace OctoCat.Api.Tests
             // Verify the branch was actually deleted
             var getResponse = await _client.GetAsync($"{_apiPath}/1");
             Assert.Equal(HttpStatusCode.NotFound, getResponse.StatusCode);
+        }
+
+        [Fact]
+        public async Task Delete_NonExistingBranch_ReturnsNotFound()
+        {
+            // Act
+            var response = await _client.DeleteAsync($"{_apiPath}/999");
+            
+            // Assert
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
     }
 }
