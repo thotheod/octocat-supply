@@ -72,7 +72,6 @@ Reusing custom prompts to streamline AI-native workflow and demonstrate prompt e
 ### 2.6 Spec-kit
 
 #### Spec-kit installation
-https://www.youtube.com/watch?v=a9eR1xsfvHg&t=17s
 1. show repo: https://github.com/github/spec-kit#-get-started
 2. Install _uv_ (modern Python package and project manager written in Rust.)
     i.e. # Install via PowerShell script
