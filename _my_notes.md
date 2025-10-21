@@ -10,7 +10,7 @@
 ### 1.1 Generic
 Demonstrate Instructions, commit messages, and customer patterns, Coding Agent at the IDE, Automodel, MCP Tools
 and of course everything in the IDE :)
-- Demonstrate "Next Edit feature" in product.json file. Add _"sku": "IW-001"_ to the first product.
+- Demonstrate "___Next Edit feature___" in product.json file. Add _"sku": "IW-001"_ to the first product.
 
 ### 1.2 MCP Server and tools - Show Limits
 - explain what MCP server is/ that is different than tools. One MCP server may have many tools
