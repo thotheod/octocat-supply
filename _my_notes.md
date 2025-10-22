@@ -51,7 +51,7 @@ Reusing custom prompts to streamline AI-native workflow and demonstrate prompt e
 - HINT: you can disable the Builtin > Edit files tool to show that it cannot create a file. then in Agent Mode use GPT 5.0 mini and prompt "create a CONTRIBUTING.md file based on best practices" - it will fail as it cannot create files without the tool enabled. But after you enable it it will be able to create the file.
 
 ### 2.3 Custom modes
-- Demonstrate the use of custom modes in the chat. Select BDD mode from the mode picker. Show how the prompt is pre-filled with BDD instructions. Ask_ "add a feature to test the cart icon and page"_ - show how it creates a proper Gherkin feature file.
+- Demonstrate the use of custom modes in the chat. Select BDD (behaviour driven development) mode from the mode picker. Show how the prompt is pre-filled with BDD instructions. Ask_ "add a feature to test the cart icon and page"_ - show how it creates a proper Gherkin feature file.
 
 ### 2.4 Custom instructions :) :)
 - use ask GPT 4.1 and ask "review my code base". Possibly some good results. Then show https://github.com/github/awesome-copilot and copy from /.misc-resources the file "gilfoyle-code-review.instructions.md" to the .github/instructions and ask again "review my code base" - LOL (if it does not work try _"review my codebase using #file:gilfoyle-code-review.instructions.md"_
