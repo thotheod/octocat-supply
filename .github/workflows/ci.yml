@@ -21,10 +21,10 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore octocat-supply.sln
 
       - name: Run tests
-        run: dotnet test --collect:"XPlat Code Coverage"
+        run: dotnet test octocat-supply.sln --collect:"XPlat Code Coverage"
 
       - name: Upload test results
         if: always()
