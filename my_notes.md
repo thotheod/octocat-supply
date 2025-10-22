@@ -44,11 +44,11 @@ and of course everything in the IDE :)
 
 ### 2.2 AZD - Azure Developer CLI
      - (GPT 5.0 mini / Agent) prompt: Are you familiar with AZD - Azure Developer CLI ? 
-     - If yes, proceed to "can you help me create an AZD project that will deploy in azure this app as described in the file #deployment.md"_
+     - If yes, proceed to "generate the required AZD project scaffolding the and the Bicep/scripts file required, to deploy this project in azure"_
      
 
 ### 2.3 full blown Bicep - of ACA LZA
-    - (GPT 5.0 mini / Agent) prompt: _"can you help me create a bicep deployment that will deploy  in azure this architecture described int he image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and ask me for feedback for every step"_
+    - (GPT 5.0 mini / Agent) prompt: _"Help me create a bicep deployment that will deploy  in azure the aca-lza architecture described in the image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and ask me for feedback if something is not very clear"_
 
 ## Demo 3
 Show the differences of giving well defined prompts vs vague prompts
