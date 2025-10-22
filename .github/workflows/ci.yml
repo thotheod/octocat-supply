@@ -15,16 +15,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: List files for debugging
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in root:"
+          ls -la
+          echo "All .csproj files:"
+          find . -name "*.csproj"
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 9.0.x
 
       - name: Install dependencies
-        run: dotnet restore octocat-supply.sln
+        run: dotnet restore api-tests/api-tests.csproj
 
       - name: Run tests
-        run: dotnet test octocat-supply.sln --collect:"XPlat Code Coverage"
+        run: dotnet test api-tests/api-tests.csproj --collect:"XPlat Code Coverage"
 
       - name: Upload test results
         if: always()
