@@ -12,8 +12,8 @@ infra/
 │   ├── webapps.bicep          # Web Apps (Sites) connected to ACR for running containers
 │   ├── logAnalytics.bicep     # Log Analytics workspace
 ├── parameters/
-│   ├── staging.parameters.json # Staging environment parameters
-│   └── production.parameters.json # Production environment parameters
+│   ├── staging.bicepparam # Staging environment parameters
+│   └── production.bicepparam # Production environment parameters
 ```
 
 #### Parameters must include:

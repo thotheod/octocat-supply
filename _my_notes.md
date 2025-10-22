@@ -26,56 +26,43 @@ and of course everything in the IDE :)
     - Show the details of the issue, search for something like "Detailed Requirements Based On Design"
 
 ### 1.4 Implement tests 
-
 - (Claude Sonnet 4 / Agent): Prompt: _run tests, analyze coverage and add missing Branch tests to include tests for untested scenarios_
     - Watch that it creates a TODO list first, that updates as it proceeds
     - watch how it fixes itself when it cannot execute tests, or gets errors
     - Watch how it calculates test coverage etc.... (it takes around 5 minutes to complete)
 - Ask Copilot to _add tests for the Product route_ to show generation of new tests
 
-## 2 IaC - Infrastructure as Code
+### 1.5 IaC - Infrastructure as Code
+- (GPT 5.0 mini / Agent) prompt: _"Create a GitHub Actions workflow file to run tests and code analysis on every pull request"_
+    - show how it creates the .github/workflows/ci.yml file
+    - explain the content of the file"
 
-
-### 2.1 Show how to create a CI workflow
-- (GPT 5.0 mini / Agent on MAIN branch) prompt: _"Create a GitHub Actions workflow file to run tests and code analysis on every pull request"_
-    - ask it to "How can I modify the ci.yml to also run on demand ? ", and if it does not run the commands, follow up with "help me do that"
-    - if it fails because front end does not have tests "Make frontend tests optional in the CI workflow"
-    - if it then fails again, "how can I verify that the files are checked out on the build agent and what the current path is ?" - play around
-
-### 2.2 AZD - Azure Developer CLI
-     - (GPT 5.0 mini / Agent) prompt: Are you familiar with AZD - Azure Developer CLI ? 
-     - If yes, proceed to "can you help me create an AZD project that will deploy in azure this app as described in the file #deployment.md"_
-     
-
-### 2.3 full blown Bicep - of ACA LZA
-    - (GPT 5.0 mini / Agent) prompt: _"can you help me create a bicep deployment that will deploy  in azure this architecture described int he image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and ask me for feedback for every step"_
-
-## Demo 3
+## Demo 2
 Show the differences of giving well defined prompts vs vague prompts
 Spec-driven workflows with Spec Kit, prompting best practices, and AI agents executing specs. 
 Demo: Spec-to-code flow using Copilot + Spec Kit.
 
-### 3.1 Show how to document an API
+### 2.1 Show how to document an API
     1. Try EDIT MODE and GPT 4.1 > "Create API documentation following best practices"
         Results will be vague possibly, possibly appendix in Readme.md
     2. Try AGENT MODE and Claude Sonnet 3.5> "Create API documentation following best practices. Please create the required files inside docs folder, and I want also to add OpenAI 3.0 spec file"
         Results now are closer to what we want....
 
 
-### 3.2 Custom Prompt Files
+### 2.2 Custom Prompt Files
 Reusing custom prompts to streamline AI-native workflow and demonstrate prompt engineering best practices
 - _Model Comparison Prompt_: Show the model-compare.prompt.md file in the prompts directory. Explain the YAML frontmatter (mode: 'agent', description, tools). Click the Run button in the top (or use Command Palette → "Chat: Run Prompt" - start from ASK, erase docs/model-comparison.md) and show how it automatically selects Agent mode, fetches live documentation, and updates the comparison markdown file.-
 - Another demo would be to use the /create-readme.prompt.md command on the chat and call the prompt file to generate README.md from . 
 - HINT: you can disable the Builtin > Edit files tool to show that it cannot create a file. then in Agent Mode use GPT 5.0 mini and prompt "create a CONTRIBUTING.md file based on best practices" - it will fail as it cannot create files without the tool enabled. But after you enable it it will be able to create the file.
 
-### 3.3 Custom modes
+### 2.3 Custom modes
 - Demonstrate the use of custom modes in the chat. Select BDD (behaviour driven development) mode from the mode picker. Show how the prompt is pre-filled with BDD instructions. Ask_ "add a feature to test the cart icon and page"_ - show how it creates a proper Gherkin feature file.
 
-### 3.4 Custom instructions :) :)
+### 2.4 Custom instructions :) :)
 - use ask GPT 4.1 and ask "review my code base". Possibly some good results. Then show https://github.com/github/awesome-copilot and copy from /.misc-resources the file "gilfoyle-code-review.instructions.md" to the .github/instructions and ask again "review my code base" - LOL (if it does not work try _"review my codebase using #file:gilfoyle-code-review.instructions.md"_
 
 
-### 3.5 GitHub Spark
+### 2.5 GitHub Spark
 - Got to https://github.com/spark/thotheod. Add in the prompt 
 
     _"I want to build a project called 'Mood Tracker demo'. For start I want a local-first web app for logging and viewing daily moods. In this first iteration The Mood Tracker demo allows users to:
@@ -87,7 +74,7 @@ Reusing custom prompts to streamline AI-native workflow and demonstrate prompt e
 
 
 
-### 3.6 Spec-kit
+### 2.6 Spec-kit
 
 #### Spec-kit installation
 1. show repo: https://github.com/github/spec-kit#-get-started
