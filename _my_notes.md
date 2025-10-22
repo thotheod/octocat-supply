@@ -32,6 +32,11 @@ and of course everything in the IDE :)
     - Watch how it calculates test coverage etc.... (it takes around 5 minutes to complete)
 - Ask Copilot to _add tests for the Product route_ to show generation of new tests
 
+### 1.5 IaC - Infrastructure as Code
+- (GPT 5.0 mini / Agent) prompt: _"Create a GitHub Actions workflow file to run tests and code analysis on every pull request"_
+    - show how it creates the .github/workflows/ci.yml file
+    - explain the content of the file"
+
 ## Demo 2
 Show the differences of giving well defined prompts vs vague prompts
 Spec-driven workflows with Spec Kit, prompting best practices, and AI agents executing specs. 
