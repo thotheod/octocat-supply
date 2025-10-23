@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Industrial Widget",
       "category": "Components",
+      "sku": "IW-1001",
       "price": 29.99,
       "description": "High-quality industrial widget",
       "supplier": "TechSupply Inc"
@@ -12,6 +13,7 @@
       "id": 2,
       "name": "Precision Bearing",
       "category": "Bearings",
+      "sku": "PB-1002", 
       "price": 15.50,
       "description": "Precision ball bearing for machinery",
       "supplier": "BearingWorks"

@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/react-slick": "^0.23.13",
     "axios": "^1.8.4",
+    "expert-octo-garbanzo": "file:..",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-query": "^3.39.3",
