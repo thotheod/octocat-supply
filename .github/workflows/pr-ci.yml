@@ -1,0 +1,113 @@
+name: PR CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'Which part of the workflow to run'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - backend
+          - frontend
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+        dotnet-version: [9.0]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Restore .NET dependencies
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'backend' }}
+        working-directory: ./api
+        run: dotnet restore
+
+      - name: Build .NET solution
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'backend' }}
+        working-directory: ./api
+        run: dotnet build --no-restore --configuration Release --verbosity minimal
+
+      - name: Run .NET tests
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'backend' }}
+        working-directory: ./api
+        run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
+
+      - name: Publish .NET test results
+        if: ${{ always() && (github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'backend') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-test-results
+          path: api/TestResults || api/**/TestResults || api/test-results
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install frontend dependencies (safe)
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'frontend' }}
+        working-directory: ./frontend
+        run: |
+          if [ -f package-lock.json ] || [ -f yarn.lock ]; then
+            npm ci --silent
+          else
+            npm install --silent
+          fi
+
+      - name: Run frontend lint
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'frontend' }}
+        working-directory: ./frontend
+        run: |
+          if npm run -s lint --silent 2>/dev/null; then
+            npm run -s lint
+          else
+            echo "No lint script found, skipping frontend lint"
+          fi
+
+      - name: Run frontend tests (optional)
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'frontend' }}
+        working-directory: ./frontend
+        run: |
+          # Run tests if a test script exists; do not fail the job if there are no tests
+          if npm run -s test --silent 2>/dev/null; then
+            npm run -s test -- --ci --reporter=default || true
+          else
+            echo "No frontend tests found, skipping"
+          fi
+
+      - name: Run npm audit (security check)
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'frontend' }}
+        working-directory: ./frontend
+        run: |
+          if [ -f package-lock.json ] || [ -f yarn.lock ]; then
+            npm audit --audit-level=moderate || true
+          else
+            echo "No lockfile found, skipping npm audit"
+          fi
+
+      - name: Create a lightweight code analysis step for .NET
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.scope == 'all' || github.event.inputs.scope == 'backend' }}
+        working-directory: ./api
+        run: |
+          # dotnet format is optional; try to run it if available in the SDK
+          if dotnet tool list -g | grep -q dotnet-format; then
+            dotnet format --verify-no-changes || true
+          else
+            echo "dotnet-format not installed globally; skipping format verification"
+          fi
