@@ -33,6 +33,18 @@ and of course everything in the IDE :)
     - Watch how it calculates test coverage etc.... (it takes around 5 minutes to complete)
 - Ask Copilot to _add tests for the Product route_ to show generation of new tests
 
+### 1.5 Security with GHC
+    - 1.5.1: (Claude sonnet 3.5 / agent): "analyze @workspace and check if there are obvious security vulnerabilities"
+        - "create an issue to fix API Authorization Issues"
+        - "Create sub-tasks for better tracking and give me link to the issue"
+
+    - 1.5.2: (Claude sonnet 3.5 / agent): "Add a container scanning workflow to my CI/CD pipeline"
+    - 1.5.3: (Claude sonnet 3.5 / agent): "Forget about Github Issues: Help fix the security issues with the dockerfile and include security best practices"
+
+
+
+
+
 ## 2 IaC - Infrastructure as Code
 
 
@@ -44,11 +56,11 @@ and of course everything in the IDE :)
 
 ### 2.2 AZD - Azure Developer CLI
      - (GPT 5.0 mini / Agent) prompt: Are you familiar with AZD - Azure Developer CLI ? 
-     - If yes, proceed to "generate the required AZD project scaffolding the and the Bicep/scripts file required, to deploy this project in azure"_
+     - If yes, proceed to "can you help me create an AZD project that will deploy in azure this app as described in the file #deployment.md"_
      
 
 ### 2.3 full blown Bicep - of ACA LZA
-    - (GPT 5.0 mini / Agent) prompt: _"Help me create a bicep deployment that will deploy  in azure the aca-lza architecture described in the image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and ask me for feedback if something is not very clear"_
+    - (GPT 5.0 mini / Agent) prompt: _"can you help me create a bicep deployment that will deploy  in azure this architecture described int he image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and ask me for feedback for every step"_
 
 ## Demo 3
 Show the differences of giving well defined prompts vs vague prompts
