@@ -42,31 +42,3 @@ jobs:
           name: backend-test-results
           path: api-tests/TestResults/
 
-  frontend-test:
-    name: Frontend Tests
-    runs-on: ubuntu-latest
-    continue-on-error: true  # This makes the job optional
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18.x'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run code analysis (lint)
-        run: npm run lint
-
-      - name: Run tests
-        run: npm test
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-test-results
-          path: frontend/TestResults/
