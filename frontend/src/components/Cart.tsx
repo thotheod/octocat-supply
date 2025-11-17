@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
+import { useToast } from '../context/ToastContext';
 import { Link } from 'react-router-dom';
 
 export default function Cart() {
   const { items, removeFromCart, updateQuantity, getSubtotal, getDiscount, getShipping, getTotal } = useCart();
   const { darkMode } = useTheme();
+  const { showToast } = useToast();
   const [couponCode, setCouponCode] = useState('');
 
   const handleQuantityChange = (productId: number, newQuantity: number) => {
@@ -15,7 +17,7 @@ export default function Cart() {
 
   const handleApplyCoupon = () => {
     // Placeholder for coupon functionality
-    alert('Coupon functionality coming soon!');
+    showToast('Coupon functionality coming soon!', 'info');
   };
 
   if (items.length === 0) {

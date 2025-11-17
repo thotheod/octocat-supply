@@ -9,6 +9,7 @@ import Login from './components/Login';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { CartProvider } from './context/CartContext';
+import { ToastProvider } from './context/ToastContext';
 import AdminProducts from './components/admin/AdminProducts';
 import { useTheme } from './context/ThemeContext';
 
@@ -40,9 +41,11 @@ function App() {
   return (
     <AuthProvider>
       <ThemeProvider>
-        <CartProvider>
-          <ThemedApp />
-        </CartProvider>
+        <ToastProvider>
+          <CartProvider>
+            <ThemedApp />
+          </CartProvider>
+        </ToastProvider>
       </ThemeProvider>
     </AuthProvider>
   );

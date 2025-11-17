@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { api } from '../../../api/config';
 import { useTheme } from '../../../context/ThemeContext';
 import { useCart } from '../../../context/CartContext';
+import { useToast } from '../../../context/ToastContext';
 
 interface Product {
   productId: number;
@@ -30,6 +31,7 @@ export default function Products() {
   const { data: products, isLoading, error } = useQuery('products', fetchProducts);
   const { darkMode } = useTheme();
   const { addToCart } = useCart();
+  const { showToast } = useToast();
 
   const filteredProducts = products?.filter(product => 
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -56,7 +58,7 @@ export default function Products() {
           discount: product.discount,
           imgName: product.imgName
         });
-        alert(`Added ${quantity} x ${product.name} to cart`);
+        showToast(`Added ${quantity} x ${product.name} to cart`);
         setQuantities(prev => ({
           ...prev,
           [productId]: 0
