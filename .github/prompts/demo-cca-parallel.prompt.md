@@ -34,7 +34,7 @@ Implement a complete Cart system including:
 
 ### Frontend Architecture and Building
 - Refer to the existing Architecture Doc (../docs/architecture.md) for frontend structure
-- Refere to the Building Doc (../docs/building.md) for build instructions
+- Refer to the Build Doc (../docs/build.md) for build instructions
 
 ### Implementation Specifications
 1. **Cart Context**: Create a CartContext to manage cart state globally

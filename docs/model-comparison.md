@@ -1,9 +1,11 @@
 # Model Comparison Table
 
-This comparison was genereated using the custom prompt file [model-compare.prompt.md](../.github/prompts/model-compare.prompt.md) and using `Gemini 2.5 Pro`. You can generatae you own using `/model-compare` in the Copilot Chat.
+This comparison was generated using the custom prompt file [model-compare.prompt.md](../.github/prompts/model-compare.prompt.md) and using `Gemini 2.5 Pro`.
+
+To generate an updated version for your environment, run the prompt in VS Code (Command Palette → `Prompts: Run Prompt` → select `model-compare.prompt.md`).
 
 > [!NOTE]
-> As the model world is moving quickly, the information in this predefined document might be outdated. Use the `/model-compare` command as described above to get a file with the latest information.
+> As the model world is moving quickly, the information in this predefined document might be outdated. Re-run the `model-compare.prompt.md` prompt to regenerate the table using the latest docs.
 
 ## 1. Balance Between Performance and Cost
 
