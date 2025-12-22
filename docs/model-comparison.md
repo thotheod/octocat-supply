@@ -1,57 +1,62 @@
 # Model Comparison Table
 
-This comparison was generated using the custom prompt file [model-compare.prompt.md](../.github/prompts/model-compare.prompt.md) and using `Gemini 2.5 Pro`.
+This comparison is generated using the custom prompt file [model-compare.prompt.md](../.github/prompts/model-compare.prompt.md).
 
-To generate an updated version for your environment, run the prompt in VS Code (Command Palette → `Prompts: Run Prompt` → select `model-compare.prompt.md`).
+To regenerate for your environment, run the prompt in VS Code (Command Palette → `Prompts: Run Prompt` → select `model-compare.prompt.md`).
 
 > [!NOTE]
-> As the model world is moving quickly, the information in this predefined document might be outdated. Re-run the `model-compare.prompt.md` prompt to regenerate the table using the latest docs.
+> Model availability and multipliers change frequently. This document was last refreshed on **2025-12-22** using the linked GitHub Docs.
+
+Legend: ✅ GA • 🚧 Preview • 👓 Vision • 🧠 Reasoning • 🤖 Agent mode • 💸 cheap • 💰 expensive
 
 ## 1. Balance Between Performance and Cost
 
-**Pros:** Good all-rounders, versatile, cost-effective options.
+**Pros:** Defaults ✅, balanced ⚖️, strong coding coverage.
 
-| Model             | Use Case / Differentiator               | GA/Preview | Special Abilities      | Multiplier         |
-| ----------------- | --------------------------------------- | ---------- | ---------------------- | ------------------ |
-| GPT-4.1           | Default for common dev, broad knowledge | ✅          | Multilingual, 👓 Visual | 0 (paid), 1 (free) |
-| Claude 3.7 Sonnet | Advanced dev, architectural planning    | ✅          | -                      | 1                  |
+| Model | Use Case / Differentiator | GA/Preview | Special Abilities | Multiplier (Paid / Free) |
+| --- | --- | --- | --- | --- |
+| GPT-4.1 | General-purpose coding & writing | ✅ | 🤖👓 | Paid: 0× (included) / Free: 1× |
+| GPT-4o | Included chat model (good default) | ✅ | — | Paid: 0× (included) / Free: 1× |
+| GPT-5 mini | Default-quality coding with speed | ✅ | 🤖🧠👓 | Paid: 0× (included) / Free: 1× |
+| Claude Sonnet 4.5 | General-purpose coding + agent tasks | ✅ | 🤖 | Paid: 1× / Free: — |
+| Grok Code Fast 1 | Coding-focused, fast responses 🚀 | ✅ | 🤖 | Paid: 0.25× 💸 / Free: — |
+| GPT-5-Codex | Code-first for features/tests/reviews | 🚧 | 🤖 | Paid: 1× / Free: — |
+| GPT-5.1-Codex | Codex variant (code-heavy workflows) | ✅ | — | Paid: 1× / Free: — |
+| GPT-5.1-Codex-Max | Higher-capacity Codex variant | ✅ | — | Paid: 1× / Free: — |
 
 ## 2. Fast, Low-Cost Support for Basic Tasks
 
-**Pros:** Speed 🚀, low latency, cost savings 💸, simple logic, quick feedback.
+**Pros:** Speed 🚀, low cost 💸, quick edits, small questions.
 
-| Model             | Use Case / Differentiator                 | GA/Preview | Special Abilities | Multiplier |
-| ----------------- | ----------------------------------------- | ---------- | ----------------- | ---------- |
-| o4-mini           | Fastest, most efficient for basic tasks   | 🚧          | -                 | -          |
-| Claude 3.5 Sonnet | Everyday coding, documentation, low cost  | ✅          | -                 | 1          |
-| o3-mini           | Fast, concise for simple/repetitive tasks | ✅          | -                 | 0.33       |
+| Model | Use Case / Differentiator | GA/Preview | Special Abilities | Multiplier (Paid / Free) |
+| --- | --- | --- | --- | --- |
+| Claude Haiku 4.5 | Fast, lightweight coding help | ✅ | 🤖 | Paid: 0.33× 💸 / Free: 1× |
+| Gemini 3 Flash | Fast help for simple/repetitive tasks | 🚧 | 🤖 | Paid: 0.33× 💸 / Free: — |
+| GPT-5.1-Codex-Mini | Low-cost Codex variant (small tasks) | 🚧 | — | Paid: 0.33× 💸 / Free: — |
+| Raptor mini | Fast inline suggestions & explanations | 🚧 | 🤖 | Paid: 0× (included) / Free: 1× |
 
-## 3. Deep Reasoning & Complex Coding Challenges
+## 3. Deep Reasoning & Multimodal Inputs
 
-**Pros:** Advanced logic, multi-step problem solving, high-quality code generation.
+**Pros:** Deep debugging 🧠, multi-file reasoning, architecture, visuals 👓.
 
-| Model          | Use Case / Differentiator                    | GA/Preview | Special Abilities | Multiplier |
-| -------------- | -------------------------------------------- | ---------- | ----------------- | ---------- |
-| GPT-4.5        | Multi-step logic, nuanced, high-quality code | ✅          | -                 | 50 💰       |
-| o3             | Deepest reasoning, debugging, complex tasks  | 🚧          | -                 | -          |
-| o1             | Deep logic, debugging, root cause analysis   | ✅          | -                 | 10 💰       |
-| Gemini 2.5 Pro | Advanced algorithms, long-context research   | 🚧          | -                 | 1          |
-
-## 4. Multimodal Inputs & Real-Time Performance
-
-**Pros:** Visual input 👓, real-time interaction, UI/diagram analysis.
-
-| Model            | Use Case / Differentiator                     | GA/Preview | Special Abilities      | Multiplier |
-| ---------------- | --------------------------------------------- | ---------- | ---------------------- | ---------- |
-| GPT-4o           | Lightweight dev, conversational, visual input | ✅          | 👓 Visual, Multilingual | 1          |
-| Gemini 2.0 Flash | UI inspection, diagram analysis, visual bugs  | ✅          | 👓 Visual               | 0.25 💸     |
+| Model | Use Case / Differentiator | GA/Preview | Special Abilities | Multiplier (Paid / Free) |
+| --- | --- | --- | --- | --- |
+| GPT-5 | Complex reasoning & code analysis | ✅ | 🧠 | Paid: 1× / Free: — |
+| GPT-5.1 | Deep reasoning & debugging | ✅ | 🤖 | Paid: 1× / Free: — |
+| GPT-5.2 | Deep reasoning & debugging | ✅ | 🤖 | Paid: 1× / Free: — |
+| Claude Sonnet 4 | Balanced deep reasoning for coding workflows | ✅ | 🤖👓 | Paid: 1× / Free: — |
+| Claude Opus 4.5 | Higher-end reasoning | ✅ | — | Paid: 3× 💰 / Free: — |
+| Claude Opus 4.1 | Highest-end reasoning | ✅ | 🧠👓 | Paid: 10× 💰💰 / Free: — |
+| Gemini 2.5 Pro | Long-context reasoning + visuals | ✅ | 🧠👓 | Paid: 1× / Free: — |
+| Gemini 3 Pro | Gemini Pro tier (preview) | 🚧 | — | Paid: 1× / Free: — |
 
 ---
 
 ## References
 
-- [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
-- [About premium requests](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests?versionId=enterprise-cloud%40latest)
+- [AI model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
+- [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models)
+- [Requests in GitHub Copilot (premium requests & multipliers)](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests?versionId=enterprise-cloud%40latest)
 
 ---
 
@@ -59,53 +64,47 @@ To generate an updated version for your environment, run the prompt in VS Code (
 
 ```mermaid
 graph LR
-    %% Performance Category
-    subgraph "Performance (Faster - Lower Cost/Complexity)"
-      o4m["o4-mini<br/>🚀💸<br/>(Preview)"]
-      g2f["Gemini 2.0 Flash<br/>🚀💸👓<br/>(GA)"]
-      o3m["o3-mini<br/>🚀💸<br/>(GA)"]
-      c35s["Claude 3.5 Sonnet<br/>🚀<br/>(GA)"]
-      o4m --> g2f
-      g2f --> o3m
-      o3m --> c35s
-    end
+  gcf1["Grok Code Fast 1<br/>🚀💸 0.25×"] -->
+  ch45["Claude Haiku 4.5<br/>🚀💸 0.33×"] -->
+  g3f["Gemini 3 Flash<br/>🚧🚀💸 0.33×"] -->
+  g51cm["GPT-5.1-Codex-Mini<br/>🚧💸 0.33×"] -->
+  rmini["Raptor mini<br/>🚧💸 0×"] -->
+  g41["GPT-4.1<br/>💸 0×"] -->
+  g4o["GPT-4o<br/>💸 0×"] -->
+  g5m["GPT-5 mini<br/>💸 0×"] -->
+  cs45["Claude Sonnet 4.5<br/>1×"] -->
+  g5c["GPT-5-Codex<br/>🚧 1×"] -->
+  g51c["GPT-5.1-Codex<br/>1×"] -->
+  g51cx["GPT-5.1-Codex-Max<br/>1×"] -->
+  g5["GPT-5<br/>🧠 1×"] -->
+  g51["GPT-5.1<br/>1×"] -->
+  g52["GPT-5.2<br/>1×"] -->
+  cs4["Claude Sonnet 4<br/>👓 1×"] -->
+  g25p["Gemini 2.5 Pro<br/>🧠👓 1×"] -->
+  g3p["Gemini 3 Pro<br/>🚧 1×"] -->
+  co45["Claude Opus 4.5<br/>💰 3×"] -->
+  co41["Claude Opus 4.1<br/>💰💰 10×"]
 
-    %% Balanced Category
-    subgraph "Balanced"
-    direction TB
-    g41["GPT-4.1<br/>✅<br/>(Base Model)"]
-    g4o["GPT-4o<br/>👓<br/>(GA)"]
-    g41 --> g4o
-    end
+  style gcf1 fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+  style ch45 fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+  style g3f fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+  style g51cm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+  style rmini fill:#f9f,stroke:#333,stroke-width:2px,color:#000
 
-    %% Quality & Cost Category
-    subgraph "Quality & Cost (Higher - Higher Cost/Complexity)"
-    direction TB
-    c37s["Claude 3.7 Sonnet<br/>✅<br/>(GA)"]
-    g25p["Gemini 2.5 Pro<br/>🚧<br/>(Preview)"]
-    o1["o1<br/>💰<br/>(GA)"]
-    o3["o3<br/>🚧💰<br/>(Preview)"]
-    g45["GPT-4.5<br/>✅💰💰<br/>(GA)"]
-    c37s --> g25p
-    g25p --> o1
-    o1 --> o3
-    o3 --> g45
-    end
+  style g41 fill:#9cf,stroke:#333,stroke-width:2px,color:#000
+  style g4o fill:#9cf,stroke:#333,stroke-width:2px,color:#000
+  style g5m fill:#9cf,stroke:#333,stroke-width:2px,color:#000
+  style cs45 fill:#9cf,stroke:#333,stroke-width:2px,color:#000
+  style g5c fill:#9cf,stroke:#333,stroke-width:2px,color:#000
+  style g51c fill:#9cf,stroke:#333,stroke-width:2px,color:#000
+  style g51cx fill:#9cf,stroke:#333,stroke-width:2px,color:#000
 
-    %% Horizontal connections between categories
-    c35s -.-> g41
-    g4o -.-> c37s
-
-    %% Styling
-    style o4m fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style g2f fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style o3m fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style c35s fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style g41 fill:#9cf,stroke:#333,stroke-width:2px,color:#000
-    style g4o fill:#9cf,stroke:#333,stroke-width:2px,color:#000
-    style c37s fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style g25p fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style o1 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style o3 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style g45 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+  style g5 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+  style g51 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+  style g52 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+  style cs4 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+  style g25p fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+  style g3p fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+  style co45 fill:#fc9,stroke:#333,stroke-width:2px,color:#000
+  style co41 fill:#fc9,stroke:#333,stroke-width:2px,color:#000
 ```
