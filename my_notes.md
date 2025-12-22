@@ -26,7 +26,6 @@ and of course everything in the IDE :)
     - Show the details of the issue, search for something like "Detailed Requirements Based On Design"
 
 ### 1.4 Implement tests 
-
 - (Claude Sonnet 4 / Agent): Prompt: _run tests, analyze coverage and add missing Branch tests to include tests for untested scenarios_
     - Watch that it creates a TODO list first, that updates as it proceeds
     - watch how it fixes itself when it cannot execute tests, or gets errors
