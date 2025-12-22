@@ -47,7 +47,7 @@ and of course everything in the IDE :)
      
 
 ### 2.3 full blown Bicep - of ACA LZA
-    - (GPT 5.0 mini / Agent) prompt: _"Help me create a bicep deployment that will deploy  in azure the aca-lza architecture described in the image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and ask me for feedback if something is not very clear"_
+    - (GPT 5.0 mini / Agent) prompt: _"Help me create a bicep deployment that will deploy  in - (GPT 5.0 mini / Agent) prompt: _"Help me create a bicep deployment that will deploy  in azure the aca-lza architecture described in the image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and aazure the aca-lza architecture described in the image. I want a modular design, parameters in .bicepparam files, and best practices in code and naming of resources. I want you to proceed step by step and ask me for feedback if something is not very clear"_
 
 ## Demo 3
 Show the differences of giving well defined prompts vs vague prompts
